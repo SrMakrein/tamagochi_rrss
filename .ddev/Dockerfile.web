@@ -1,0 +1,25 @@
+ARG BASE_IMAGE
+FROM $BASE_IMAGE
+
+# Install additional PHP extensions
+RUN apt-get update && apt-get install -y \
+    git \
+    zip \
+    unzip \
+    curl \
+    && docker-php-ext-install \
+    pdo \
+    pdo_mysql \
+    bcmath \
+    ctype \
+    fileinfo \
+    json \
+    mbstring \
+    tokenizer \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Set working directory
+WORKDIR /var/www/html

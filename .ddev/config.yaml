@@ -1,0 +1,29 @@
+name: tamagochi-rrss
+type: laravel
+docroot: public
+php_version: '8.3'
+nodejs_version: '18'
+database:
+  type: mysql
+  version: '8.0'
+  name: tamagochi_rrss
+  user: db
+  password: db
+mysql:
+  max_allowed_packet: 256M
+  query_cache_size: 0
+  query_cache_type: '0'
+nfs_mount_enabled: false
+fail_on_hook_fail: false
+hooks: {}
+provider: docker
+router_http_port: '80'
+router_https_port: '443'
+xdebug_enabled: false
+additional_hostnames: []
+additional_fqdns: []
+upload_dir: ''
+timezone: 'Europe/Madrid'
+web_environment:
+  - APP_ENV=local
+  - APP_DEBUG=true

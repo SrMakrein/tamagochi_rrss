@@ -1,0 +1,9 @@
+version: '3.6'
+services:
+  web:
+    environment:
+      - LARAVEL_ENV=local
+      - APP_DEBUG=true
+  db:
+    cap_add:
+      - SYS_NICE
